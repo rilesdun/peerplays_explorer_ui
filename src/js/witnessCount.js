@@ -3,7 +3,6 @@ function updateWitnesses() {
     fetch('http://localhost:5000/api/accounts/witness_count')
       .then(response => response.json())
       .then(data => {
-        // Update the UI with the witness count
         const witnessCount = data.witness_count;
         document.querySelector('.witness-count').innerText = '+' + witnessCount;
       })
@@ -12,8 +11,5 @@ function updateWitnesses() {
       });
   }
   
-  // Call the update function every 60 seconds (adjust the interval as needed)
-  setInterval(updateWitnesses, 60000);
-  
-  // Call the function once immediately to get the initial data
+  setInterval(updateWitnesses, 900000);
   updateWitnesses();
