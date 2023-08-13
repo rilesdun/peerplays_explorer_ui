@@ -1,0 +1,16 @@
+nodes_modules/
+
+node_modules/
+
+dist/
+build/
+
+.env
+
+
+.DS_Store
+Thumbs.db
+
+
+.idea/
+*.swp
