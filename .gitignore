@@ -1,16 +1,33 @@
-nodes_modules/
-
+# Node.js
 node_modules/
+package-lock.json
+npm-debug.log
 
-dist/
-build/
+# Tailwind CSS (if you are using JIT and have an output file)
+tailwind.output.css
 
+# Flask
+*.pyc
+__pycache__/
+instance/
+.webassets-cache
 .env
 
+# Development environment files
+.vscode/
+.idea/
 
+# OS generated files
 .DS_Store
 Thumbs.db
 
+# Build and distribution directories
+dist/
+build/
 
-.idea/
-*.swp
+# Logs and databases
+*.log
+*.sqlite
+
+# Environment variables
+.env.local

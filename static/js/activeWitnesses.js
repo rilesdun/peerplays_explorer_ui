@@ -1,20 +1,19 @@
+fetch("http://localhost:5000/api/accounts/witnesses")
+  .then((response) => response.json())
+  .then((data) => {
+    // Now we have the witnesses data, we can create the HTML elements
+    const statsDiv = document.getElementById("active-witnesses");
 
-fetch('http://localhost:5000/api/accounts/witnesses')
-    .then(response => response.json())
-    .then(data => {
-        // Now we have the witnesses data, we can create the HTML elements
-        const statsDiv = document.getElementById('active-witnesses');
+    data.witness_list.forEach((witness) => {
+      // Create a new div for each witness
+      const witnessDiv = document.createElement("div");
+      witnessDiv.classList.add("bg-black/60", "to-white/5", "rounded-lg");
 
-        data.witness_list.forEach(witness => {
-            // Create a new div for each witness
-            const witnessDiv = document.createElement('div');
-            witnessDiv.classList.add('bg-black/60', 'to-white/5', 'rounded-lg');
-
-            witnessDiv.innerHTML = `
+      witnessDiv.innerHTML = `
             <div class="flex flex-col p-2">
                 <div class="p-2">
                     <p class="text-gray-53 font-sm">${witness.account_name}</p>
-                    <p class="text-gray-500 text-sm">${witness.witness_data.url}</p>
+                    <p class="text-gray-500 text-sm"><a href="${witness.witness_data.url}" target="_blank" class="text-blue-400 hover:underline">${witness.witness_data.url}</a></p>
                     <p class="text-sm">Total Votes: ${witness.witness_data.total_votes}</p>
                 </div>
             </div>
@@ -33,22 +32,22 @@ fetch('http://localhost:5000/api/accounts/witnesses')
                 <p class="text-sm">Vote ID: ${witness.witness_data.vote_id}</p>
             </div>
         `;
-        
-        const detailsButton = witnessDiv.querySelector('.details-button');
-        const detailsDiv = witnessDiv.querySelector('.witness-details');
-        detailsButton.addEventListener('click', () => {
-            detailsDiv.classList.toggle('hidden');
 
-            // Toggle the button text based on whether the details are visible or hidden
-            if (detailsDiv.classList.contains('hidden')) {
-                detailsButton.textContent = 'More Details';
-            } else {
-                detailsButton.textContent = 'Less Details';
-            }
-        });
+      const detailsButton = witnessDiv.querySelector(".details-button");
+      const detailsDiv = witnessDiv.querySelector(".witness-details");
+      detailsButton.addEventListener("click", () => {
+        detailsDiv.classList.toggle("hidden");
 
-        // Append the new div to the stats div
-        statsDiv.appendChild(witnessDiv);
+        // Toggle the button text based on whether the details are visible or hidden
+        if (detailsDiv.classList.contains("hidden")) {
+          detailsButton.textContent = "More Details";
+        } else {
+          detailsButton.textContent = "Less Details";
+        }
+      });
+
+      // Append the new div to the stats div
+      statsDiv.appendChild(witnessDiv);
     });
-})
-.catch(error => console.error('Error:', error));
+  })
+  .catch((error) => console.error("Error:", error));
