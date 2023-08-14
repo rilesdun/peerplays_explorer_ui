@@ -1,8 +1,25 @@
 {
-  "devDependencies": {
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.27",
-    "prettier": "3.0.1",
+  "name": "explorer-ui-vanilla",
+  "version": "1.0.0",
+  "description": "Peerplays Blockchain Explorer UI",
+  "main": "null",
+  "dependencies": {
+    "prettier": "^3.0.1",
     "tailwindcss": "^3.3.3"
-  }
+  },
+  "scripts": {
+    "build:css": "tailwindcss build -o static/css/output.css",
+    "prettier": "prettier . --write",
+    "start": "python3 app.py run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rilesdun/explorer-ui-vanilla.git"
+  },
+  "author": "rilesdun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rilesdun/explorer-ui-vanilla/issues"
+  },
+  "homepage": "https://github.com/rilesdun/explorer-ui-vanilla#readme"
 }

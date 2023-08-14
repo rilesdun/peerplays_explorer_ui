@@ -11,5 +11,5 @@ function updateWitnesses() {
     });
 }
 
-setInterval(updateWitnesses, 900000);
+setInterval(updateWitnesses, 50000);
 updateWitnesses();
