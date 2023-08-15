@@ -6,9 +6,8 @@ function fetchBlockInfo(specificBlockNumber) {
   if (!blockNumber) {
     blockNumber = document.getElementById("block-number-input").value;
   }
-  currentBlockNumber = blockNumber; // Update this line
-  // Removed the duplicate declaration of blockNumber
-  fetch(`http://localhost:5000/api/block/${blockNumber}`)
+  currentBlockNumber = blockNumber;
+  return fetch(`http://localhost:5000/api/block/${blockNumber}`)
     .then((response) => response.json())
     .then((data) => {
       const blockInfo = data.block_info;
@@ -33,29 +32,37 @@ function fetchBlockInfo(specificBlockNumber) {
     })
     .catch((error) => {
       console.error("Error fetching block info:", error);
+      throw error; // Re-throw the error to allow it to be caught by calling code
     });
 }
 
 // get latest block info button function
 
 function fetchLatestBlockInfo() {
-  fetch('http://localhost:5000/api/latest_block_num')
+  fetch("http://localhost:5000/api/latest_block_num")
     .then((response) => response.json())
     .then((data) => {
-      if (data.latest_block_num !== null && data.latest_block_num !== undefined) {
+      if (
+        data.latest_block_num !== null &&
+        data.latest_block_num !== undefined
+      ) {
         fetchBlockInfo(data.latest_block_num);
       }
     })
     .catch((error) => {
-      console.error('Error fetching latest block number:', error);
+      console.error("Error fetching latest block number:", error);
     });
 }
-
 
 function fetchNextBlockInfo() {
   if (currentBlockNumber !== null) {
     currentBlockNumber++;
-    fetchBlockInfo(currentBlockNumber);
+    fetchBlockInfo(currentBlockNumber)
+      .catch((error) => {
+        currentBlockNumber--;
+        showPopup('Error fetching next block - You are likely on the latest block already');
+        console.error(error);
+      });
   }
 }
 
@@ -64,4 +71,16 @@ function fetchPreviousBlockInfo() {
     currentBlockNumber--;
     fetchBlockInfo(currentBlockNumber);
   }
+}
+
+function showPopup(message, timeout = 2750) { 
+  const popup = document.getElementById("popup");
+  const popupMessage = document.getElementById("popup-message");
+  
+  popupMessage.textContent = message;
+  popup.classList.remove('hidden'); 
+
+  setTimeout(() => {
+    popup.classList.add('hidden'); 
+  }, timeout);
 }
