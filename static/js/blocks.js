@@ -2,7 +2,7 @@ let currentBlockNumber = null;
 
 // get block info button function
 function fetchBlockInfo(specificBlockNumber) {
-  let blockNumber = specificBlockNumber;
+  let blockNumber = specificBlockNumber;  
   if (!blockNumber) {
     blockNumber = document.getElementById("block-number-input").value;
   }
@@ -36,6 +36,23 @@ function fetchBlockInfo(specificBlockNumber) {
     });
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  const blockNumberInput = document.getElementById("block-number-input");
+  const submitButton = document.querySelector("button[onclick='fetchBlockInfo()']");
+
+  blockNumberInput.addEventListener('input', function() {
+    if (blockNumberInput.value === '') {
+      submitButton.disabled = true;
+    } else {
+      submitButton.disabled = false;
+    }
+  });
+
+  // Initially disable the button
+  submitButton.disabled = true;
+
+  fetchLatestBlockInfo();
+});
 // get latest block info button function
 
 function fetchLatestBlockInfo() {
