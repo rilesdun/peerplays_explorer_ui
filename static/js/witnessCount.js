@@ -11,6 +11,6 @@ function updateWitnesses() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener("DOMContentLoaded", (event) => {
   updateWitnesses();
 });

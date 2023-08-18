@@ -10,6 +10,14 @@ def index():
 def accounts():
     return render_template('accounts.html')
 
+@app.route('/account/<string:account_name>', methods=['GET'])
+def account_details(account_name):
+    try:
+        account_info = get_account_info(account_name)
+        return render_template('account_details.html', account_info=account_info)
+    except AccountDoesNotExistsException:
+        return jsonify(error="Account does not exist"), 404
+
 @app.route('/blocks')
 def blocks():
     return render_template('blocks.html')

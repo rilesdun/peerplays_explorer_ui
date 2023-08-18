@@ -2,7 +2,7 @@ let currentBlockNumber = null;
 
 // get block info button function
 function fetchBlockInfo(specificBlockNumber) {
-  let blockNumber = specificBlockNumber;  
+  let blockNumber = specificBlockNumber;
   if (!blockNumber) {
     blockNumber = document.getElementById("block-number-input").value;
   }
@@ -38,10 +38,12 @@ function fetchBlockInfo(specificBlockNumber) {
 
 document.addEventListener("DOMContentLoaded", function () {
   const blockNumberInput = document.getElementById("block-number-input");
-  const submitButton = document.querySelector("button[onclick='fetchBlockInfo()']");
+  const submitButton = document.querySelector(
+    "button[onclick='fetchBlockInfo()']",
+  );
 
-  blockNumberInput.addEventListener('input', function() {
-    if (blockNumberInput.value === '') {
+  blockNumberInput.addEventListener("input", function () {
+    if (blockNumberInput.value === "") {
       submitButton.disabled = true;
     } else {
       submitButton.disabled = false;
@@ -74,12 +76,13 @@ function fetchLatestBlockInfo() {
 function fetchNextBlockInfo() {
   if (currentBlockNumber !== null) {
     currentBlockNumber++;
-    fetchBlockInfo(currentBlockNumber)
-      .catch((error) => {
-        currentBlockNumber--;
-        showPopup('Error fetching next block - You are likely on the latest block already');
-        console.error(error);
-      });
+    fetchBlockInfo(currentBlockNumber).catch((error) => {
+      currentBlockNumber--;
+      showPopup(
+        "Error fetching next block - You are likely on the latest block already",
+      );
+      console.error(error);
+    });
   }
 }
 
@@ -90,14 +93,14 @@ function fetchPreviousBlockInfo() {
   }
 }
 
-function showPopup(message, timeout = 2750) { 
+function showPopup(message, timeout = 2750) {
   const popup = document.getElementById("popup");
   const popupMessage = document.getElementById("popup-message");
-  
+
   popupMessage.textContent = message;
-  popup.classList.remove('hidden'); 
+  popup.classList.remove("hidden");
 
   setTimeout(() => {
-    popup.classList.add('hidden'); 
+    popup.classList.add("hidden");
   }, timeout);
 }
