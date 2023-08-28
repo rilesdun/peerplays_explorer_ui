@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from flask import jsonify
 
 app = Flask(__name__)
 
@@ -9,14 +10,10 @@ def index():
 @app.route('/accounts')
 def accounts():
     return render_template('accounts.html')
-
-@app.route('/account/<string:account_name>', methods=['GET'])
+    
+@app.route('/accounts/<string:account_name>', methods=['GET'])
 def account_details(account_name):
-    try:
-        account_info = get_account_info(account_name)
-        return render_template('account_details.html', account_info=account_info)
-    except AccountDoesNotExistsException:
-        return jsonify(error="Account does not exist"), 404
+    return render_template('account_details.html')
 
 @app.route('/blocks')
 def blocks():
