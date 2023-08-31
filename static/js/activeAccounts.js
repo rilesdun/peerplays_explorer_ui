@@ -14,8 +14,8 @@ function fetchActiveAccounts() {
               <div class="flex flex-col p-2">
                   <div class="p-2">
                       <p class="text-gray-53 font-sm">${account.name}</p>
-                      <p class="text-sm">Account ID: ${account.account_id}</p>
-                      <p class="text-sm">Balance: ${account.balance} ${account.symbol}</p>
+                      <p class="text-md">Account ID: ${account.account_id}</p>
+                      <p class="text-md">Balance: ${account.balance} ${account.symbol}</p>
                   </div>
                   <div class="p-2">
                       <button onclick="window.location.href='/accounts/${account.name}'" class="details-button bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-lg transition-colors duration-200 ease-in">View Details</button>

@@ -10,10 +10,22 @@ def index():
 @app.route('/accounts')
 def accounts():
     return render_template('accounts.html')
+
+@app.route('/accounts/witnesses')
+def accounts_witnesses():
+    return render_template('witnesses.html')
+
+@app.route('/accounts/sons')
+def accounts_sons():
+    return render_template('sons.html')
     
 @app.route('/accounts/<string:account_name>', methods=['GET'])
 def account_details(account_name):
     return render_template('account_details.html')
+
+@app.route('/assets')
+def assets():
+    return render_template('assets.html')
 
 @app.route('/blocks')
 def blocks():

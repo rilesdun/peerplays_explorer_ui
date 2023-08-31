@@ -27,60 +27,94 @@
     </style>
   </head>
   <body>
-    <!-- sidebar start -->
-    <div
-      class="antialiased bg-black w-full min-h-screen text-slate-300 relative py-4"
-    >
-      <div
-        class="grid grid-cols-12 mx-auto gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-full my-10 px-6"
-      >
-        <div id="menu" class="bg-white/10 col-span-3 rounded-lg p-4">
-          <h1
-            class="font-bold text-lg lg:text-3xl bg-gradient-to-br from-white via-white/50 to-transparent bg-clip-text text-transparent"
-          >
-            Peerplays Explorer<span class="text-indigo-400"></span>
-          </h1>
+   <!-- sidebar start -->
+   <div class="antialiased bg-black w-full min-h-screen text-slate-300 relative py-4">
+    <div class="grid grid-cols-12 mx-auto gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-full my-10 px-6">
+      <div id="menu" class="bg-white/10 col-span-3 rounded-lg p-4">
+        <h1
+          class="font-bold text-lg lg:text-3xl bg-gradient-to-br from-white via-white/50 to-transparent bg-clip-text text-transparent"
+        >
+          Peerplays Explorer<span class="text-indigo-400"></span>
+        </h1>
 
-          <hr class="my-2 border-slate-700" />
-          <div id="menu" class="flex flex-col space-y-2 my-5">
-            <a
-              href="/"
-              class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group"
+        <hr class="my-2 border-slate-700" />
+        <div id="menu" class="flex flex-col space-y-2 my-5">
+          <a
+            href="/"
+            class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group"
+          >
+            <div
+              class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center"
             >
-              <div
-                class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center"
-              >
-                <div>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="w-6 h-6 group-hover:text-indigo-400"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <p
-                    class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400"
-                  >
-                    Home
-                  </p>
-                  <p class="text-slate-400 text-sm hidden md:block">
-                    General overview of the peerplays blockchain
-                  </p>
-                </div>
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6 group-hover:text-indigo-400"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                  />
+                </svg>
               </div>
-            </a>
+              <div>
+                <p
+                  class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400"
+                >
+                  Home
+                </p>
+                <p class="text-slate-400 text-sm hidden md:block">
+                  General overview of the peerplays blockchain
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="/assets"
+            class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group"
+          >
+            <div
+              class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center"
+            >
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <p
+                  class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400"
+                >
+                  Assets
+                </p>
+                <p class="text-slate-400 text-sm hidden md:block">
+                  A list of all assets on the peerplays blockchain
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <div class="group relative">
             <a
               href="/accounts"
-              class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group"
+              class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group block relative"
             >
               <div
                 class="relative flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center"
@@ -113,44 +147,66 @@
                 </div>
               </div>
             </a>
-            <a
-              href="/blocks"
-              class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group"
+            <div
+              class="absolute top-full left-0 w-full rounded-md shadow-lg bg-white/10 text-slate-300 relative py-4 z-10 hidden group-hover:block transition-opacity duration-200"
             >
-              <div
-                class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center"
+              <a
+                href="/accounts/witnesses"
+                class="block px-4 py-2 text-sm hover:bg-white/10 hover:text-indigo-400 transition duration-150 ease-linear"
+                >Witnesses</a
               >
-                <div>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="w-6 h-6 group-hover:text-indigo-400"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <p
-                    class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400"
-                  >
-                    Blocks
-                  </p>
-                  <p class="text-slate-400 text-sm hidden md:block">
-                    Detailed information on specific blocks
-                  </p>
-                </div>
+              <a
+                href="/accounts/sons"
+                class="block px-4 py-2 text-sm hover:bg-white/10 hover:text-indigo-400 transition duration-150 ease-linear"
+                >SONs</a
+              >
+              <a
+                href="/accounts/committee-members"
+                class="block px-4 py-2 text-sm hover:bg-white/10 hover:text-indigo-400 transition duration-150 ease-linear"
+                >Committee Members</a
+              >
+            </div>
+          </div>
+          <div class="group relative">
+            <a href="/blocks" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group block relative">
+            <div
+              class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center"
+            >
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6 group-hover:text-indigo-400"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"
+                  />
+                </svg>
               </div>
-            </a>
+              <div>
+                <p
+                  class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400"
+                >
+                  Blocks
+                </p>
+                <p class="text-slate-400 text-sm hidden md:block">
+                  Detailed information on specific blocks
+                </p>
+              </div>
+            </div>
+          </a>
+          <div class="absolute top-full left-0 w-full rounded-md shadow-lg bg-white/10 text-slate-300 relative py-4 z-10 hidden group-hover:block transition-opacity duration-200">
+            <a href="/blocks/transactions" class="block px-4 py-2 text-sm hover:bg-white/10 hover:text-indigo-400 transition duration-150 ease-linear">Transactions</a>
           </div>
         </div>
-        <!-- sidebar end -->
+        </div>
+      </div>
+      <!-- sidebar end -->
         <div class="bg-white/10 col-span-9 rounded-lg p-6">
           <h1 class="font-bold py-4 uppercase">Top 25 PPY Holders</h1>
 

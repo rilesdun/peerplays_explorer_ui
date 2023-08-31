@@ -53,7 +53,15 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initially disable the button
   submitButton.disabled = true;
 
-  fetchLatestBlockInfo();
+  // Check if a specific block number is provided in the URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const blockNumber = urlParams.get("block");
+
+  if (blockNumber) {
+    fetchBlockInfo(blockNumber);
+  } else {
+    fetchLatestBlockInfo();
+  }
 });
 // get latest block info button function
 
