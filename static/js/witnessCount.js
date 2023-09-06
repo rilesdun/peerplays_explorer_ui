@@ -1,4 +1,3 @@
-// Define a function to fetch witnesses and update the UI
 function updateWitnesses() {
   fetch("http://localhost:5000/api/accounts/witness_count")
     .then((response) => response.json())

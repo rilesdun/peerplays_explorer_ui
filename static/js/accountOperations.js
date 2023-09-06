@@ -1,5 +1,3 @@
-// static/js/accountOperations.js
-
 const ASSET_IDS = {
   "1.3.0": "PPY",
   "1.3.1": "BTFUN",

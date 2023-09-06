@@ -13,7 +13,6 @@ fetch("http://localhost:5000/api/transactions")
         "my-2",
       );
 
-      // Add the transaction data to the div
       ["expiration", "operation_results", "operations", "signatures"].forEach(
         (key) => {
           const p = document.createElement("p");

@@ -1,4 +1,3 @@
-// static/js/accountDetails.js
 function fetchAccountDetails() {
   const accountName = window.location.pathname.split("/").pop();
 

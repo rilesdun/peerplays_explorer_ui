@@ -1,5 +1,3 @@
-// static/js/activeAccounts.js
-
 function fetchActiveAccounts() {
   fetch("http://localhost:5000/api/rich_list/ppy")
     .then((response) => response.json())

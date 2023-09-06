@@ -164,11 +164,6 @@
                   class="block px-4 py-2 text-sm hover:bg-white/10 hover:text-indigo-400 transition duration-150 ease-linear"
                   >SONs</a
                 >
-                <a
-                  href="/accounts/committee-members"
-                  class="block px-4 py-2 text-sm hover:bg-white/10 hover:text-indigo-400 transition duration-150 ease-linear"
-                  >Committee Members</a
-                >
               </div>
             </div>
             <div class="group relative">
@@ -220,6 +215,15 @@
           </div>
         </div>
         <!-- sidebar end -->
+        <div class="bg-white/10 col-span-9 rounded-lg p-6">
+          <h1 class="font-bold py-4 uppercase">Current Active SON Operators</h1>
+          <div
+            id="active-sons"
+            class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-4 bg-black/60 p-6 rounded-lg"
+          ></div>
+        </div>
+
+        <script src="../static/js/fetchActiveSons.js"></script>
       </div>
     </div>
   </body>

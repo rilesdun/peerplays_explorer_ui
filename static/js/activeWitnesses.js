@@ -1,5 +1,3 @@
-// static/js/activeWitnesses.js
-
 function fetchActiveWitnesses() {
   fetch("http://localhost:5000/api/accounts/witnesses")
     .then((response) => response.json())
