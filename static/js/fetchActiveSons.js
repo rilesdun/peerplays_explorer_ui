@@ -4,7 +4,7 @@ function fetchActiveSons() {
     .then((data) => {
       const statsDiv = document.getElementById("active-sons"); // replace with your div ID
 
-      data.forEach((son) => {
+      data.active_sons.forEach((son) => {
         const sonDiv = document.createElement("div");
         sonDiv.classList.add("bg-black/60", "to-white/5", "rounded-lg");
 

@@ -1,27 +1,34 @@
-fetch("http://localhost:5000/api/transactions")
-  .then((response) => response.json())
-  .then((data) => {
+async function handleTransactionDisplay(transaction) {
+  const transactionElement = document.createElement("div");
+  transactionElement.classList.add("transaction", "bg-black/60", "to-white/5", "rounded-lg", "p-2", "my-2");
+
+  // Add more structured data display here
+  transactionElement.innerHTML = `
+      <p>Expiration: ${transaction.expiration}</p>
+      <p>Operation Results: ${JSON.stringify(transaction.operation_results)}</p>
+      <p>Operations: ${JSON.stringify(transaction.operations)}</p>
+      <p>Signatures: ${transaction.signatures.join(', ')}</p>
+  `;
+
+  return transactionElement;
+}
+
+async function fetchAndDisplayTransactions() {
+  try {
+    const response = await fetch("http://localhost:5000/api/transactions");
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json();
     const transactionsDiv = document.getElementById("transactions");
 
-    data.transactions.forEach((transaction) => {
-      const transactionDiv = document.createElement("div");
-      transactionDiv.classList.add(
-        "bg-black/60",
-        "to-white/5",
-        "rounded-lg",
-        "p-2",
-        "my-2",
-      );
+    for (const transaction of data.transactions) {
+      const transactionElement = await handleTransactionDisplay(transaction);
+      transactionsDiv.appendChild(transactionElement);
+    }
+  } catch (error) {
+    console.error("Failed to fetch transactions:", error);
+  }
+}
 
-      ["expiration", "operation_results", "operations", "signatures"].forEach(
-        (key) => {
-          const p = document.createElement("p");
-          p.textContent = `${key}: ${JSON.stringify(transaction[key])}`;
-          p.classList.add("text-gray-53", "font-md");
-          transactionDiv.appendChild(p);
-        },
-      );
-
-      transactionsDiv.appendChild(transactionDiv);
-    });
-  });
+fetchAndDisplayTransactions();
