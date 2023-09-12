@@ -23,5 +23,3 @@ Contributions to this project are welcome! If you have an idea for a new feature
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more information.
-
-I hope this helps! Is there anything else you would like me to add or change? 😊
