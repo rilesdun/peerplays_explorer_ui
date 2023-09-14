@@ -1,5 +1,5 @@
 function fetchLatestBlockNum() {
-  fetch("http://localhost:5000/api/latest_block_num")
+  fetch(`${config.BASE_URL}/api/latest_block_num`)
     .then((response) => response.json())
     .then((data) => {
       if (data.latest_block_num !== null && data.latest_block_num !== undefined) {

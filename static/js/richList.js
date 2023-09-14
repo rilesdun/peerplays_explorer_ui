@@ -1,5 +1,5 @@
 function updateRichList() {
-  fetch("http://localhost:5000/api/accounts") // replace with your API endpoint
+  fetch(`${config.BASE_URL}/api/accounts`) 
     .then((response) => response.json())
     .then((data) => {
       const richListDiv = document.querySelector("#rich-list");

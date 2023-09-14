@@ -15,7 +15,7 @@ async function handleTransactionDisplay(transaction) {
 
 async function fetchAndDisplayTransactions() {
   try {
-    const response = await fetch("http://localhost:5000/api/transactions");
+    const response = await fetch(`${config.BASE_URL}/api/transactions`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }

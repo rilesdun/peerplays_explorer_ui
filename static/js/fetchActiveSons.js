@@ -1,8 +1,8 @@
 function fetchActiveSons() {
-  fetch("http://localhost:5000/api/accounts/active_sons") // replace with your API endpoint
+  fetch(`${config.BASE_URL}/api/accounts/active_sons`)
     .then((response) => response.json())
     .then((data) => {
-      const statsDiv = document.getElementById("active-sons"); // replace with your div ID
+      const statsDiv = document.getElementById("active-sons"); 
 
       data.active_sons.forEach((son) => {
         const sonDiv = document.createElement("div");

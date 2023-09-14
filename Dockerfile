@@ -6,7 +6,7 @@ ADD . /app
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN npm run build:css
+RUN npm install && npm run build:css
 
 EXPOSE 8080
 

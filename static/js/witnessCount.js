@@ -1,5 +1,5 @@
 function updateWitnesses() {
-  fetch("http://localhost:5000/api/accounts/witness_count")
+  fetch(`${config.BASE_URL}/api/accounts/witness_count`)
     .then((response) => response.json())
     .then((data) => {
       const witnessCount = data.witness_count;

@@ -7,7 +7,7 @@ function fetchBlockInfo(specificBlockNumber) {
     blockNumber = document.getElementById("block-number-input").value;
   }
   currentBlockNumber = blockNumber;
-  return fetch(`http://localhost:5000/api/block/${blockNumber}`)
+  return fetch(`${config.BASE_URL}/api/block/${blockNumber}`)
     .then((response) => response.json())
     .then((data) => {
       const blockInfo = data.block_info;
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // get latest block info button function
 
 function fetchLatestBlockInfo() {
-  fetch("http://localhost:5000/api/latest_block_num")
+  fetch(`${config.BASE_URL}/api/latest_block_num`)
     .then((response) => response.json())
     .then((data) => {
       if (

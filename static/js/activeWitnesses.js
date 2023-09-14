@@ -1,5 +1,5 @@
 function fetchActiveWitnesses() {
-  fetch("http://localhost:5000/api/accounts/witnesses")
+  fetch(`${config.BASE_URL}/api/accounts/witnesses`)
     .then((response) => response.json())
     .then((data) => {
       const statsDiv = document.getElementById("active-witnesses");

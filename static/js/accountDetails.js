@@ -1,7 +1,7 @@
 function fetchAccountDetails() {
   const accountName = window.location.pathname.split("/").pop();
 
-  fetch(`http://localhost:5000/api/accounts/${accountName}`)
+  fetch(`${config.BASE_URL}/api/accounts/${accountName}`)
     .then((response) => response.json())
     .then((data) => {
       const accountDiv = document.getElementById("account-details");

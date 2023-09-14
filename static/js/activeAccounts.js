@@ -1,6 +1,6 @@
 async function fetchActiveAccountsData() {
   try {
-    const response = await fetch("http://localhost:5000/api/rich_list/ppy");
+    const response = await fetch(`${config.BASE_URL}/api/rich_list/ppy`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }

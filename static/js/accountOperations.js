@@ -26,7 +26,7 @@ async function fetchAccountName(accountId) {
     return accountNameCache[accountId];
   }
   const response = await fetch(
-    `http://localhost:5000/api/accounts/${accountId}`,
+    `${config.BASE_URL}/api/accounts/${accountId}`,
   );
   const data = await response.json();
   accountNameCache[accountId] = data.account_info.name;
@@ -342,7 +342,7 @@ async function handleVestingBalanceWithdrawOperation(operation) {
 async function fetchAccountOperations(accountName) {
   try {
     const response = await fetch(
-      `http://localhost:5000/api/account_history/${accountName}`,
+      `${config.BASE_URL}/api/account_history/${accountName}`,
     );
     const data = await response.json();
     const operationsDiv = document.getElementById("account-operations");

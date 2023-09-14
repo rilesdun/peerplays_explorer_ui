@@ -1,11 +1,11 @@
 function fetchAndDisplayAssets() {
   // need to rewrite this to loop through all asset objects 1.3.x
   const endpoints = [
-    "http://localhost:5000/api/supply/ppy",
-    "http://localhost:5000/api/supply/btfun",
-    "http://localhost:5000/api/supply/bitcoin",
-    "http://localhost:5000/api/supply/hive",
-    "http://localhost:5000/api/supply/hbd",
+    `${config.BASE_URL}/api/supply/ppy`,
+    `${config.BASE_URL}/api/supply/btfun`,
+    `${config.BASE_URL}/api/supply/bitcoin`,
+    `${config.BASE_URL}/api/supply/hive`,
+    `${config.BASE_URL}/api/supply/hbd`,
   ];
 
   const assetsDiv = document.getElementById("assets");

@@ -1,7 +1,7 @@
 async function updateSONs() {
   try {
     const response = await fetch(
-      "http://localhost:5000/api/accounts/active_sons",
+      `${config.BASE_URL}/api/accounts/active_sons`,
     );
     const data = await response.json();
     const sonCount = data.son_count;
