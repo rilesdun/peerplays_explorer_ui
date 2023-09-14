@@ -9,8 +9,7 @@
   },
   "scripts": {
     "build:css": "tailwindcss build -o static/css/output.css",
-    "prettier": "prettier . --write",
-    "start": "python3 app.py run"
+    "prettier": "prettier . --write"
   },
   "repository": {
     "type": "git",
