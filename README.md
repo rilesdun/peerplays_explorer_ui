@@ -7,7 +7,7 @@ This repository contains the code for a simple user interface built using vanill
 To use this interface, simply clone the repository and open the `index.html` file in your web browser.
 
 ```
-git clone https://github.com/rilesdun/explorer-ui-vanilla.git
+git clone https://github.com/rilesdun/peerplays_explorer_ui.git
 cd explorer-ui-vanilla
 open index.html
 ```

@@ -1,0 +1,157 @@
+name: Release & Deploy
+
+permissions:
+  contents: write
+
+on:
+  push:
+    branches:
+      - main
+env:
+  REGISTRY: docker.io
+  IMAGE_NAME: rilesdun/peerplays_explorer_ui
+
+jobs:
+
+  pylint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11"]
+    steps:
+    - uses: actions/checkout@v4.0.0
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4.7.0
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Set up Python virtual environment
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+
+    - name: Upgrade pip and install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pylint
+
+    - name: Set PYTHONPATH
+      run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
+
+    - name: Analysing the code with pylint
+      run: |
+        pylint $(git ls-files '*.py') 
+
+  release:
+    needs: [pylint]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4.0.0
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3.8.1
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Semantic Release
+      run: npx semantic-release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Commit CHANGELOG.md
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add CHANGELOG.md
+        git commit -m "chore: update CHANGELOG.md" || echo "No changes to commit"
+        git push
+
+  dockerhub_publish:
+    needs: [release]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4.0.0
+    
+    - name: Fetch all tags
+      run: git fetch --tags
+
+    - name: Get the latest tag
+      id: get-latest-tag
+      run: |
+        TAG=$(git tag --sort=taggerdate | tail -1)
+        echo "tag=${TAG}" >> $GITHUB_ENV
+        echo "${TAG}" > "tag-${TAG}.txt"
+
+    - name: Upload tag file
+      uses: actions/upload-artifact@v3.1.3
+      with:
+        name: tag-file
+        path: "tag-${{ env.tag }}.txt"
+
+    - name: Log into Docker Hub
+      uses: docker/login-action@v3.0.0
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+  
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3.0.0
+
+    - name: Extract Docker metadata
+      id: meta
+      uses: docker/metadata-action@v5.0.0
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        tags: ${{ env.tag }}
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v5.0.0
+      with:
+        context: .
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+
+    - name: Log out from Docker Hub
+      run: docker logout ${{ env.REGISTRY }}
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [dockerhub_publish]   
+    steps:
+    - name: SSH Key Setup
+      env:
+        PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+      run: |
+        echo "$PRIVATE_KEY" > deploy_key
+        chmod 600 deploy_key
+
+    - name: Download tag file
+      uses: actions/download-artifact@v3.0.2
+      with:
+        name: tag-file
+
+    - name: Read tag from file
+      id: read-tag
+      run: |
+        TAG=$(cat tag-*.txt)
+        echo "tag=${TAG}" >> $GITHUB_ENV
+
+    - name: Deploy on VM
+      run: |
+        ssh -o StrictHostKeyChecking=no -i deploy_key ${{ secrets.VM_USER }}@${{ secrets.VM_IP }} << ENDSSH
+        docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.tag }}
+        docker stop explorer-ui || true
+        docker rm explorer-api || true
+        docker run -d -p 8080:8080 --name explorer-ui ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.tag }}
+        ENDSSH

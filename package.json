@@ -1,6 +1,6 @@
 {
-  "name": "explorer-ui-vanilla",
-  "version": "1.0.0",
+  "name": "peerplays_explorer_ui",
+  "version": "0.1.0",
   "description": "Peerplays Blockchain Explorer UI",
   "main": "null",
   "dependencies": {
@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rilesdun/explorer-ui-vanilla.git"
+    "url": "git+https://github.com/rilesdun/peerplays_explorer_ui.git"
   },
   "author": "rilesdun",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rilesdun/explorer-ui-vanilla/issues"
+    "url": "https://github.com/rilesdun/peerplays_explorer_ui/issues"
   },
-  "homepage": "https://github.com/rilesdun/explorer-ui-vanilla#readme"
+  "homepage": "https://github.com/rilesdun/peerplays_explorer_ui#readme"
 }
