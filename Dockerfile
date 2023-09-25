@@ -1,4 +1,4 @@
-FROM nikolaik/python-nodejs:python3.11-nodejs20-slim
+FROM nikolaik/python-nodejs:python3.11-nodejs18-slim
 
 WORKDIR /app
 
@@ -10,4 +10,4 @@ RUN npm install && npm run build:css
 
 EXPOSE 8080
 
-CMD ["gunicorn", "-k", "eventlet", "-c", "gunicorn_config.py", "app:app"]
+CMD ["gunicorn", "-c", "gunicorn_config.py", "app:app"]
