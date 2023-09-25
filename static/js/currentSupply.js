@@ -1,5 +1,6 @@
 function updateCurrentSupply() {
-  fetch(`${config.BASE_URL}/api/circulating_supply/ppy`)    .then((response) => response.text())
+  fetch(`${config.BASE_URL}/api/circulating_supply/ppy`)
+    .then((response) => response.text())
     .then((supply) => {
       const formattedSupply = `${parseFloat(supply).toFixed(2)}`; // Parse the text as a float
       document.querySelector(".current-supply span").textContent =

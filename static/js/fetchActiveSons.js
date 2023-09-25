@@ -2,7 +2,7 @@ function fetchActiveSons() {
   fetch(`${config.BASE_URL}/api/accounts/active_sons`)
     .then((response) => response.json())
     .then((data) => {
-      const statsDiv = document.getElementById("active-sons"); 
+      const statsDiv = document.getElementById("active-sons");
 
       data.active_sons.forEach((son) => {
         const sonDiv = document.createElement("div");

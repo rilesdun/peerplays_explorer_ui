@@ -25,9 +25,7 @@ async function fetchAccountName(accountId) {
   if (accountNameCache[accountId]) {
     return accountNameCache[accountId];
   }
-  const response = await fetch(
-    `${config.BASE_URL}/api/accounts/${accountId}`,
-  );
+  const response = await fetch(`${config.BASE_URL}/api/accounts/${accountId}`);
   const data = await response.json();
   accountNameCache[accountId] = data.account_info.name;
   return data.account_info.name;

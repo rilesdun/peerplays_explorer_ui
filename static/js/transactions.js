@@ -1,13 +1,20 @@
 async function handleTransactionDisplay(transaction) {
   const transactionElement = document.createElement("div");
-  transactionElement.classList.add("transaction", "bg-black/60", "to-white/5", "rounded-lg", "p-2", "my-2");
+  transactionElement.classList.add(
+    "transaction",
+    "bg-black/60",
+    "to-white/5",
+    "rounded-lg",
+    "p-2",
+    "my-2",
+  );
 
   // Add more structured data display here
   transactionElement.innerHTML = `
       <p>Expiration: ${transaction.expiration}</p>
       <p>Operation Results: ${JSON.stringify(transaction.operation_results)}</p>
       <p>Operations: ${JSON.stringify(transaction.operations)}</p>
-      <p>Signatures: ${transaction.signatures.join(', ')}</p>
+      <p>Signatures: ${transaction.signatures.join(", ")}</p>
   `;
 
   return transactionElement;

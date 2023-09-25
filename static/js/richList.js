@@ -1,5 +1,5 @@
 function updateRichList() {
-  fetch(`${config.BASE_URL}/api/accounts`) 
+  fetch(`${config.BASE_URL}/api/accounts`)
     .then((response) => response.json())
     .then((data) => {
       const richListDiv = document.querySelector("#rich-list");
