@@ -1,3 +1,10 @@
+## [0.1.2](https://github.com/rilesdun/peerplays_explorer_ui/compare/v0.1.1...v0.1.2) (2023-09-25)
+
+
+### Bug Fixes
+
+* docker image, gunicorn config tweak ([6aa50aa](https://github.com/rilesdun/peerplays_explorer_ui/commit/6aa50aa3793cc0e0a24fca060294782fee1bafc0))
+
 ## [0.1.1](https://github.com/rilesdun/peerplays_explorer_ui/compare/v0.1.0...v0.1.1) (2023-09-25)
 
 
