@@ -1,3 +1,10 @@
+## [0.1.3](https://github.com/rilesdun/peerplays_explorer_ui/compare/v0.1.2...v0.1.3) (2023-09-25)
+
+
+### Bug Fixes
+
+* 0.0.0.0 for docker ([cf09c70](https://github.com/rilesdun/peerplays_explorer_ui/commit/cf09c70752ac84c37c432f36d9301b9b2471a7c7))
+
 ## [0.1.2](https://github.com/rilesdun/peerplays_explorer_ui/compare/v0.1.1...v0.1.2) (2023-09-25)
 
 
