@@ -1,3 +1,10 @@
+## [0.1.4](https://github.com/rilesdun/peerplays_explorer_ui/compare/v0.1.3...v0.1.4) (2023-09-25)
+
+
+### Bug Fixes
+
+* typo fix ([866e14c](https://github.com/rilesdun/peerplays_explorer_ui/commit/866e14c4f3ff71dbca2cb6b09a49dc87371865d5))
+
 ## [0.1.3](https://github.com/rilesdun/peerplays_explorer_ui/compare/v0.1.2...v0.1.3) (2023-09-25)
 
 
