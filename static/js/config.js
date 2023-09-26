@@ -1,5 +1,5 @@
 const config = {
-  BASE_URL: "http://170.187.183.217:5000", 
+  BASE_URL: "https://explorer.rilydunlap.me/api", 
   // update to your IP of your server ^^
   
 };
