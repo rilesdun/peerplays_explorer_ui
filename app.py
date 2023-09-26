@@ -34,7 +34,7 @@ def accounts_sons():
     return render_template('sons.html')
 
 @app.route('/accounts/<string:account_name>', methods=['GET'])
-def account_details(account_name):
+def account_details(account_name): # pylint: disable=unused-argument
     """
     Account details page
     """
