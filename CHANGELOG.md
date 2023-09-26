@@ -1,3 +1,10 @@
+## [0.1.8](https://github.com/rilesdun/peerplays_explorer_ui/compare/v0.1.7...v0.1.8) (2023-09-26)
+
+
+### Bug Fixes
+
+* backend to use SSL and DNS ([cab316f](https://github.com/rilesdun/peerplays_explorer_ui/commit/cab316ffa5fb8815ab8d14136457a7644bfd3ee4))
+
 ## [0.1.7](https://github.com/rilesdun/peerplays_explorer_ui/compare/v0.1.6...v0.1.7) (2023-09-26)
 
 
