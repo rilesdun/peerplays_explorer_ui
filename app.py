@@ -34,7 +34,7 @@ def accounts_sons():
     return render_template('sons.html')
 
 @app.route('/accounts/<string:account_name>', methods=['GET'])
-def account_details():
+def account_details(account_name):
     """
     Account details page
     """
