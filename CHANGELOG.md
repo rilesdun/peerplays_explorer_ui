@@ -1,3 +1,11 @@
+## [0.1.7](https://github.com/rilesdun/peerplays_explorer_ui/compare/v0.1.6...v0.1.7) (2023-09-26)
+
+
+### Bug Fixes
+
+* pylint unused argument ([0915912](https://github.com/rilesdun/peerplays_explorer_ui/commit/0915912e26dd331f243235cec333f42f48133bc5))
+* revert change for passing to function ([e4ecf78](https://github.com/rilesdun/peerplays_explorer_ui/commit/e4ecf7860206a85a128d1989702357461468dfd6))
+
 ## [0.1.6](https://github.com/rilesdun/peerplays_explorer_ui/compare/v0.1.5...v0.1.6) (2023-09-26)
 
 
