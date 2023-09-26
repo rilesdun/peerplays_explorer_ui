@@ -1,3 +1,3 @@
 const config = {
-  BASE_URL: "http://0.0.0.0:5000",
+  BASE_URL: "http://explorer-api:5000",
 };

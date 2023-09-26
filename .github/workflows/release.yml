@@ -151,5 +151,5 @@ jobs:
           docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.tag }}
           docker stop explorer-ui || true
           docker rm explorer-ui || true
-          docker run -d -p 8080:8080 --name explorer-ui ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.tag }}
+          docker run -d --network=explorer -p 8080:8080 --name explorer-ui ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.tag }}
           ENDSSH
