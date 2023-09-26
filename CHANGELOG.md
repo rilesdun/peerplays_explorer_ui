@@ -1,3 +1,10 @@
+## [0.1.5](https://github.com/rilesdun/peerplays_explorer_ui/compare/v0.1.4...v0.1.5) (2023-09-26)
+
+
+### Bug Fixes
+
+* add docker network ([d006cf6](https://github.com/rilesdun/peerplays_explorer_ui/commit/d006cf6a9e32954afcec4344cbc3fbf6bb74effb))
+
 ## [0.1.4](https://github.com/rilesdun/peerplays_explorer_ui/compare/v0.1.3...v0.1.4) (2023-09-25)
 
 
