@@ -1,3 +1,10 @@
+## [0.1.6](https://github.com/rilesdun/peerplays_explorer_ui/compare/v0.1.5...v0.1.6) (2023-09-26)
+
+
+### Bug Fixes
+
+* update base_url ip ([2ece941](https://github.com/rilesdun/peerplays_explorer_ui/commit/2ece941d203d5c82fbc1c6c84902ba2fdf258bbe))
+
 ## [0.1.5](https://github.com/rilesdun/peerplays_explorer_ui/compare/v0.1.4...v0.1.5) (2023-09-26)
 
 
