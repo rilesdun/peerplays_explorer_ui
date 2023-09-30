@@ -1,3 +1,10 @@
+## [0.1.10](https://github.com/rilesdun/peerplays_explorer_ui/compare/v0.1.9...v0.1.10) (2023-09-30)
+
+
+### Bug Fixes
+
+* duplicated / in api url ([afcfb23](https://github.com/rilesdun/peerplays_explorer_ui/commit/afcfb2397feacd847eab29b654667ee3730a4b4b))
+
 ## [0.1.9](https://github.com/rilesdun/peerplays_explorer_ui/compare/v0.1.8...v0.1.9) (2023-09-26)
 
 
